@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Контакты</title>
+    
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,900%7CLato:300,400i,900%7CRaleway:100,300,300i,400,500,500i,600,700">
+
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="css/fontawesome-stars-o.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="css/responsive-style.css">
+
+    <link rel="stylesheet" href="css/colors/theme-color-1.css" id="changeColorScheme">
+    
+    <link rel="stylesheet" href="css/custom.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#contactForm").submit(function(e){
+                e.preventDefault();
+                $.ajax({
+                    url: 'mail.php',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function(data) {
+                        if (data.trim() === 'success') {
+                            $('#successModal').modal('show');
+                            $("#contactForm")[0].reset();
+                        } else {
+                            alert('Произошла ошибка при отправке формы.');
+                        }
+                    },
+                    error: function() {
+                        alert('Произошла ошибка при отправке формы.');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preloader--spinners">
+            <span class="preloader--spinner"></span>
+            <span class="preloader--spinner"></span>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+        <!-- Header Section Start -->
+        <header class="header--section">
+            <!-- Header Topbar Start -->
+            <div class="header--topbar">
+                <div class="container">
+                    <!-- Header Topbar Button Start -->
+                    <ul class="nav button float--right">
+                        <li><a href="#loginForm" class="btn btn-sm btn-primary" data-toggle="modal">Login</a></li>
+                    </ul>
+                    <!-- Header Topbar Button End -->
+
+                    <!-- Header Topbar Links Start -->
+                    <ul class="nav links float--right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="text-c--main mr--8 fa fa-globe"></i><span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Английский</a></li>
+                                <li><a href="#">Узбекский</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="mailto:info@specmech.uz">
+                                <i class="text-c--main mr--8 fa fa-envelope-o"></i><span>Написать Нам</span>
+                            </a>
+                        </li>
+                        <li class="hidden-xs">
+                            <a href="tel:998909660308">
+                                <i class="text-c--main mr--8 fa fa-volume-control-phone"></i><span>+998-90-966-03-08</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Header Topbar Links End -->
+                </div>
+            </div>
+            <!-- Header Topbar End -->
+
+            <!-- Header Navbar Start -->
+            <nav class="header--navbar navbar" data-trigger="sticky">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#headerNav">
+                            <span class="sr-only">Toggle Navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <!-- Logo Start -->
+                        <a href="index.html" class="navbar-brand">
+                            <img src="img/logo.png" alt="">
+                        </a>
+                        <!-- Logo End -->
+                    </div>
+
+                    <div id="headerNav" class="navbar-collapse collapse float--right">
+                        <!-- Header Nav Links Start -->
+                        <ul class="header--nav-links nav">
+                            <li><a href="index.html">Главная</a></li>
+                            <li><a href="about.html">О Нас</a></li>
+                            <li><a href="catalog.html">Каталог</a></li>
+                            <li class="active"><a href="contact.html">Контакты</a></li>
+                        </ul>
+                        <!-- Header Nav Links End -->
+                    </div>
+                </div>
+            </nav>
+            <!-- Header Navbar End -->
+        </header>
+        <!-- Header Section End -->
+
+        <!-- Page Header Section Start -->
+        <section class="page--header--section pt--130 pb--150 bg--overlay" data-bg-img="img/page-header-img/4.png">
+            <div class="container">
+                <!-- Page Header Breadcrumb Start -->
+                <div class="page--header-breadcrumb text-uppercase text-center">
+                    <ol class="breadcrumb">
+                        <li><a href="index.html" class="btn-link">Главная</a></li>
+                        <li class="active"><span>Контакты</span></li>
+                    </ol>
+                </div>
+                <!-- Page Header Breadcrumb End -->
+
+                <!-- Page Header Title Start -->
+                <div class="page--header-title text-uppercase text-center">
+                    <h2 class="h1">Контакты</h2>
+                </div>
+                <!-- Page Header Title End -->
+            </div>
+        </section>
+        <!-- Page Header Section End -->
+
+        <!-- Contact Section Start -->
+        <section class="contact--section pt--70 bg--c-lighterblue">
+            <div class="container">
+
+                <div class="row pb--30" data-scroll-reveal="group">
+                    <div class="col-xs-4 col-xxs-12 pb--30">
+                        <!-- Contact Info Item Start -->
+                        <div class="contact--info-item">
+                            <div class="icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+
+                            <div class="title">
+                                <h3 class="h3">Телефон</h3>
+                            </div>
+
+                            <div class="info">
+                                <h4 class="h4"><a href="tel:998909660308" class="btn-link">+998 90 966-03-08</a></h4>
+                            </div>
+                        </div>
+                        <!-- Contact Info Item End -->
+                    </div>
+
+                    <div class="col-xs-4 col-xxs-12 pb--30">
+                        <!-- Contact Info Item Start -->
+                        <div class="contact--info-item">
+                            <div class="icon">
+                                <i class="fa fa-envelope-open-o"></i>
+                            </div>
+
+                            <div class="title">
+                                <h3 class="h3">Email</h3>
+                            </div>
+
+                            <div class="info">
+                                <h4 class="h4"><a href="mailto:ma@specmech.uz" class="btn-link">ma@specmech.uz</a></h4>
+                            </div>
+                            <div class="info">
+                                <h4 class="h4"><a href="mailto:info@specmech.uz" class="btn-link">info@specmech.uz</a></h4>
+                            </div>
+                        </div>
+                        <!-- Contact Info Item End -->
+                    </div>
+                    
+                    <div class="col-xs-4 col-xxs-12 pb--30">
+                        <!-- Contact Info Item Start -->
+                        <div class="contact--info-item">
+                            <div class="icon">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+
+                            <div class="title">
+                                <h3 class="h3">Адрес</h3>
+                            </div>
+
+                            <div class="info">
+                                <h4 class="h4">г.Ташкент, Мирабадский р-н, ул. Чимкентская, дом 17</h4>
+                            </div>
+                        </div>
+                        <!-- Contact Info Item End -->
+                    </div>
+                </div>
+
+                <!-- Contact Form Start -->
+                <div class="contact--form">
+                    <div class="title text-center">
+                        <h2 class="h1 text-uppercase">Оставить Заявку</h2>
+                    </div>
+
+                    <form action="contact-form.php" data-form="ajax">
+                        <div class="status"></div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" name="name" placeholder="Имя" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="email" name="email" placeholder="Email" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <input type="text" name="subject" placeholder="Тема" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <textarea name="message" placeholder="Сообщение" class="form-control" required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <button type="submit" class="btn btn-lg btn-block btn-default active">Отправить<i class="ml--8 fa fa-long-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Contact Form End -->
+            </div>
+        </section>
+        <!-- Contact Section End -->
+
+        <!-- Map Start -->
+        <div id="map" data-trigger="map">
+            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A602f2ae8bd2519d712c1c031f6ec793aff33a87c49024bc56a7d6ba8fe219e37&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
+        <!-- Map End -->
+
+        <!-- Footer Section Start -->
+        <footer class="footer--section" data-bg-img="img/footer-img/footer.png">
+            <!-- Footer Widgets Start -->
+            <div class="footer--widgets pt--90 pb--30">
+                <div class="container">
+                    <div class="row AdjustRow">
+                        <div class="col-md-3 col-xs-6 col-xss-12 pb--60">
+                            <!-- Widget Start -->
+                            <div class="widget">
+                                <!-- About Widget Start -->
+                                <div class="about--widget">
+                                    <div class="logo">
+                                        <img src="img/logo.png" alt="">
+                                    </div>
+
+                                    <address>
+                                        <p>г.Ташкент, Мирабадский р-н, ул. Чимкентская, дом 17 </p>
+                                    </address>
+
+                                    <dl>
+                                        <dt><i class="fa fa-envelope-o"></i>Email</dt>
+                                        <dd>
+                                            <p>
+                                                <a href="mailto:info@specmech.uz" class="btn-link">info@specmech.uz</a>
+                                            </p>
+                                            <p>
+                                                <a href="mailto:ma@specmech.uz" class="btn-link">ma@specmech.uz</a>
+                                            </p>
+                                        </dd>
+                                    </dl>
+
+                                    <dl>
+                                        <dt><i class="fa fa-phone"></i>Телефон</dt>
+                                        <dd>
+                                            <p>
+                                                <a href="tel:998909660308" class="btn-link">+998 90-966-03-08</a>
+                                            </p>
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <!-- About Widget End -->
+                            </div>
+                            <!-- Widget End -->
+                        </div>
+
+                        <div class="col-md-3 col-xs-6 col-xss-12 pb--60">
+                            <!-- Widget Start -->
+                            <div class="widget">
+                                <h2 class="h4 widget--title text-uppercase">Меню</h2>
+
+                                <!-- Links Widget Start -->
+                                <div class="links--widget">
+                                    <ul class="nav">
+                                        <li><a href="index.html">Главная</a></li>
+                                        <li><a href="about.html">О Компании</a></li>
+                                        <li><a href="catalog.html">Каталог</a></li>
+                                        <li><a href="contact.html">Контакты</a></li>
+                                        <li><a href="#">Политика конфиденциальности</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Links Widget End -->
+                            </div>
+                            <!-- Widget End -->
+                        </div>
+
+                        <div class="col-md-3 col-xs-6 col-xss-12 pb--60">
+                            <!-- Widget Start -->
+                            <div class="widget">
+                                <h2 class="h4 widget--title text-uppercase">Оборудование</h2>
+
+                                <!-- Links Widget Start -->
+                                <div class="links--widget">
+                                    <ul class="nav">
+                                        <li><a href="catalog.html">Промышленное оборудование</a></li>
+                                        <li><a href="catalog.html">Телекоммуникационное оборудование</a></li>
+                                        <li><a href="catalog.html">Оборудование для бесперебойного электропитания</a></li>
+                                        <li><a href="catalog.html">Система глобального позиционирования</a></li>
+                                        <li><a href="catalog.html">Автономные решения и системы мониторинга автотранспорта и цифровизации автопарка</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Links Widget End -->
+                            </div>
+                            <!-- Widget End -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Widgets End -->
+
+            <!-- Footer Copyright Start -->
+            <div class="footer--copyright pt--30 pb--30">
+                <div class="container">
+                    <ul class="social nav">
+                        <li>
+                            <p class="copyright--text">2024 &copy; <a href="#">Special Mechanization</a></p>
+                        </li>
+                    </ul>
+
+                    <p class="copyright--text"> Made by <a href="https://aurora-apps.ru/" style="color: green;" target="_blank">Aurora Apps</a></p>
+                </div>
+            </div>
+            <!-- Footer Copyright End -->
+        </footer>
+        <!-- Footer Section End -->
+    </div>
+    <!-- Wrapper End -->
+
+    <!-- Login Form Start -->
+    <div id="loginForm" class="login--form modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+
+                <div class="modal-body">
+                    <div class="title">
+                        <h2 class="h4">Login</h2>
+                    </div>
+
+                    <form action="http://billing.ywhmcs.com/dologin.php" data-form="validate">
+                        <div class="form-group">
+                            <input type="email" name="username" placeholder="Your Email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" name="password" placeholder="Password" class="form-control" required>
+                        </div>
+
+                        <input type="hidden" name="systpl" value="CloudSky">
+
+                        <p class="help-block"><a href="http://billing.ywhmcs.com/pwreset.php?systpl=CloudSky">Forgot Your Password?</a></p>
+
+                        <button type="submit" class="btn btn-block btn-default text-uppercase">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Login Form End -->
+
+    <!-- Cookie Notification Start -->
+    <div id="cookieNotify" class="hidden">
+        <div class="alert bg--c-darkgray--b">
+            <button class="close" data-dismiss="alert">&times;</button>
+            
+            <div class="container">
+                <button data-dismiss="alert" class="btn btn-sm btn-primary float--right">GOT IT!</button>
+                <p>This is a sample cookie notification bar.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Cookie Notification End -->
+
+    <!-- Back To Top Button Start -->
+    <div id="backToTop">
+        <a href="#" class="btn btn-lg btn-default active"><i class="fa fa-chevron-up"></i></a>
+    </div>
+    <!-- Back To Top Button End -->
+
+    <!-- ==== jQuery Library ==== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+    <!-- ==== jQuery UI ==== -->
+    <script src="js/jquery-ui.min.js"></script>
+
+    <!-- ==== jQuery UI Touch Punch ==== -->
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- ==== Bootstrap Framework ==== -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- ==== StickyJS Plugin ==== -->
+    <script src="js/jquery.sticky.min.js"></script>
+
+    <!-- ==== Owl Carousel Plugin ==== -->
+    <script src="js/owl.carousel.min.js"></script>
+
+    <!-- ==== Waypoints Plugin ==== -->
+    <script src="js/jquery.waypoints.min.js"></script>
+
+    <!-- ==== Counter-Up Plugin ==== -->
+    <script src="js/jquery.counterup.min.js"></script>
+
+    <!-- ==== Counter Down Plugin ==== -->
+    <script src="js/jquery.countdown.min.js"></script>
+
+    <!-- ==== Validation Plugin ==== -->
+    <script src="js/jquery.validate.min.js"></script>
+
+    <!-- ==== Isotope Plugin ==== -->
+    <script src="js/isotope.min.js"></script>
+
+    <!-- ==== Zoom Plugin ==== -->
+    <script src="js/jquery.zoom.min.js"></script>
+
+    <!-- ==== Bar Rating Plugin ==== -->
+    <script src="js/jquery.barrating.min.js"></script>
+
+    <!-- ==== Scroll Reveal Plugin ==== -->
+    <script src="js/scrollreveal.min.js"></script>
+
+    <!-- ==== RetinaJS Plugin ==== -->
+    <script src="js/retina.min.js"></script>
+
+    <!-- ==== Google Map API ==== -->
+
+    <!-- ==== Main JavaScript ==== -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
